@@ -16,6 +16,8 @@
 		DFE59BF9293BDAA4007E5627 /* GuidomiaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE59BF8293BDAA4007E5627 /* GuidomiaTests.swift */; };
 		DFE59C03293BDAA4007E5627 /* GuidomiaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE59C02293BDAA4007E5627 /* GuidomiaUITests.swift */; };
 		DFE59C05293BDAA4007E5627 /* GuidomiaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE59C04293BDAA4007E5627 /* GuidomiaUITestsLaunchTests.swift */; };
+		DFE59C12293BDB22007E5627 /* Car_list.json in Resources */ = {isa = PBXBuildFile; fileRef = DFE59C11293BDB22007E5627 /* Car_list.json */; };
+		DFE59C15293BE011007E5627 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE59C14293BE011007E5627 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		DFE59BFE293BDAA4007E5627 /* GuidomiaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GuidomiaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFE59C02293BDAA4007E5627 /* GuidomiaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuidomiaUITests.swift; sourceTree = "<group>"; };
 		DFE59C04293BDAA4007E5627 /* GuidomiaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuidomiaUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		DFE59C11293BDB22007E5627 /* Car_list.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Car_list.json; sourceTree = "<group>"; };
+		DFE59C14293BE011007E5627 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +83,7 @@
 		DFE59BD5293BDAA2007E5627 = {
 			isa = PBXGroup;
 			children = (
+				DFE59C13293BDCAC007E5627 /* Resources */,
 				DFE59BE0293BDAA2007E5627 /* Guidomia */,
 				DFE59BF7293BDAA4007E5627 /* GuidomiaTests */,
 				DFE59C01293BDAA4007E5627 /* GuidomiaUITests */,
@@ -103,7 +108,6 @@
 				DFE59BE3293BDAA2007E5627 /* SceneDelegate.swift */,
 				DFE59BE5293BDAA2007E5627 /* ViewController.swift */,
 				DFE59BE7293BDAA2007E5627 /* Main.storyboard */,
-				DFE59BEA293BDAA4007E5627 /* Assets.xcassets */,
 				DFE59BEC293BDAA4007E5627 /* LaunchScreen.storyboard */,
 				DFE59BEF293BDAA4007E5627 /* Info.plist */,
 			);
@@ -125,6 +129,16 @@
 				DFE59C04293BDAA4007E5627 /* GuidomiaUITestsLaunchTests.swift */,
 			);
 			path = GuidomiaUITests;
+			sourceTree = "<group>";
+		};
+		DFE59C13293BDCAC007E5627 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				DFE59C11293BDB22007E5627 /* Car_list.json */,
+				DFE59BEA293BDAA4007E5627 /* Assets.xcassets */,
+				DFE59C14293BE011007E5627 /* Constants.swift */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,6 +247,7 @@
 			files = (
 				DFE59BEE293BDAA4007E5627 /* LaunchScreen.storyboard in Resources */,
 				DFE59BEB293BDAA4007E5627 /* Assets.xcassets in Resources */,
+				DFE59C12293BDB22007E5627 /* Car_list.json in Resources */,
 				DFE59BE9293BDAA2007E5627 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -261,6 +276,7 @@
 				DFE59BE6293BDAA2007E5627 /* ViewController.swift in Sources */,
 				DFE59BE2293BDAA2007E5627 /* AppDelegate.swift in Sources */,
 				DFE59BE4293BDAA2007E5627 /* SceneDelegate.swift in Sources */,
+				DFE59C15293BE011007E5627 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
