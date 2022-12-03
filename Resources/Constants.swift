@@ -8,6 +8,8 @@
 import Foundation
 
 struct Constants {
+    
+    static let navigationTitle = "Guidomia"
     static let star: String = "★"
     static let bulletPoint: String = "•"
     static let price: String = "Price:"
