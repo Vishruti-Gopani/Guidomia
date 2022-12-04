@@ -85,7 +85,7 @@ struct Cars: Codable{
     
     func getCarRating() -> String {
         var star = Constants.star
-        var spaceStar = Constants.space + star
+        let spaceStar = Constants.space + star
         for _ in 1..<rating {
             star.append(spaceStar)
         }

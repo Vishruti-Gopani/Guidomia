@@ -7,10 +7,17 @@
 
 import UIKit
 
-class CarListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    
+class CarListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, textFieldDelegates {
+   
     private var selectedIndex: IndexPath?
     var viewModel: CarViewModel?
+    var isFiltering: Bool = false
+    
+    var filterData = [Cars]() {
+        didSet {
+            tableView.reloadData()
+        }
+    }
   
     // TableView configuration
     private let tableView :UITableView = {
@@ -56,17 +63,22 @@ class CarListViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if isFiltering{
+            return filterData.count
+        }
         return viewModel?.carModel?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.detailCellIdentifier, for: indexPath) as! CarDetailTableViewCell
-        cell.carModel = viewModel?.carModel?[indexPath.row]
+        let car = isFiltering ? filterData[indexPath.row] : viewModel?.carModel?[indexPath.row]
+        cell.carModel = car
         return cell
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: Constants.headerCellIdentifier) as! tableHeaderView
+        view.delegate = self
         return view
     }
     
@@ -84,6 +96,34 @@ class CarListViewController: UIViewController, UITableViewDataSource, UITableVie
    
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return Constants.headerViewHeight
+    }
+    
+    // Methods for search textfields delegates
+    
+    func didTapOnMakeField(makeString: String) {
+        if let data = viewModel?.carModel, makeString.count > 0 {
+            isFiltering = true
+            filterData = data.filter({(dataString: Cars) -> Bool in
+                return (dataString.make.range(of: makeString, options: .caseInsensitive) != nil)
+            })
+            
+        } else {
+            isFiltering = false
+            filterData = viewModel?.carModel ?? []
+        }
+    }
+    
+    func didTapOnModelField(modelString: String) {
+        if let data = viewModel?.carModel, modelString.count > 0 {
+            isFiltering = true
+            filterData = data.filter({(dataString: Cars) -> Bool in
+                return (dataString.model.range(of: modelString, options: .caseInsensitive) != nil)
+            })
+            
+        } else {
+            isFiltering = false
+            filterData = viewModel?.carModel ?? []
+        }
     }
 }
 

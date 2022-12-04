@@ -8,8 +8,14 @@
 import Foundation
 import UIKit
 
+protocol textFieldDelegates{
+    func didTapOnMakeField(makeString: String)
+    func didTapOnModelField(modelString: String)
+}
 
 class tableHeaderView : UITableViewHeaderFooterView{
+    
+    var delegate: textFieldDelegates?
     
     let stackView: UIStackView = {
         var stackView = UIStackView()
@@ -78,6 +84,7 @@ class tableHeaderView : UITableViewHeaderFooterView{
         tf.layer.cornerRadius = Constants.tfCornerRadius;
         tf.placeholder = Constants.makeTFPH
         tf.layer.masksToBounds = true;
+        tf.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         return tf
     }()
 
@@ -92,6 +99,7 @@ class tableHeaderView : UITableViewHeaderFooterView{
         tf.layer.cornerRadius = Constants.tfCornerRadius;
         tf.layer.masksToBounds = true;
         tf.placeholder = Constants.modelTFPH
+        tf.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         return tf
     }()
 
@@ -180,6 +188,16 @@ class tableHeaderView : UITableViewHeaderFooterView{
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
     
+    //textfiled delegates to filter cars
+    @objc private func textFieldDidChange(_ textField: UITextField) {
+        if textField == makeTextField{
+            self.delegate?.didTapOnMakeField(makeString: textField.text ?? "")
+            modelTextField.text = ""
+        }else{
+            self.delegate?.didTapOnModelField(modelString: textField.text ?? "")
+            makeTextField.text = ""
+        }
+    }
 }
+
