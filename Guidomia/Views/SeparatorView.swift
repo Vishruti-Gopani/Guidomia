@@ -18,7 +18,7 @@ class SeparatorView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     let lineView: UIView = {
-        var view = UIView(frame: CGRect(x: 15, y: 10, width: UIScreen.main.bounds.size.width - 30 , height: 5))
+        var view = UIView(frame: CGRect(x: 15, y: -2, width: UIScreen.main.bounds.size.width - 30 , height: 2))
         view.backgroundColor = UIColor(named: "Orange")
         return view
     }()

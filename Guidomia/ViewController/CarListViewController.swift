@@ -18,7 +18,7 @@ class CarListViewController: UIViewController, UITableViewDataSource, UITableVie
         tableView.register(CarDetailTableViewCell.self, forCellReuseIdentifier: Constants.detailCellIdentifier)
         tableView.register(tableHeaderView.self,
                            forHeaderFooterViewReuseIdentifier: Constants.headerCellIdentifier)
-        tableView.backgroundColor = UIColor(named: "Orange")
+        tableView.backgroundColor = UIColor(named: "LightGray")
         tableView.separatorStyle = .none
         return tableView
     }()

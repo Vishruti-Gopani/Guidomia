@@ -11,6 +11,7 @@ class ExpandDetailView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+        self.backgroundColor = UIColor(named: "LightGray")
         configureViews()
     }
     
@@ -29,23 +30,27 @@ class ExpandDetailView: UIView {
         var label = UILabel()
         label.text = "Pros:"
         label.textAlignment = .left
-        label.textColor = .black
         label.numberOfLines = 0
+        label.textColor = UIColor(named: "Text")
+        label.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
         return label
     }()
     let prosDetail:UILabel = {
         var label = UILabel()
         label.text = "Pros: Detail......"
         label.textAlignment = .left
-        label.textColor = .black
+        label.textColor = UIColor(named: "BulletText")
+        label.font = UIFont.systemFont(ofSize: 14, weight: .bold)
         label.numberOfLines = 0
+        label.lineBreakMode = .byTruncatingTail
         return label
     }()
     let consTitle:UILabel = {
         var label = UILabel()
         label.text = "Cons:"
         label.textAlignment = .left
-        label.textColor = .black
+        label.textColor = UIColor(named: "Text")
+        label.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
         label.numberOfLines = 0
         return label
     }()
@@ -54,8 +59,10 @@ class ExpandDetailView: UIView {
         var label = UILabel()
         label.text = "Cons: Detail......."
         label.textAlignment = .left
-        label.textColor = .black
+        label.textColor = UIColor(named: "BulletText")
+        label.font = UIFont.systemFont(ofSize: 14, weight: .bold)
         label.numberOfLines = 0
+        label.lineBreakMode = .byTruncatingTail
         return label
     }()
 
@@ -73,9 +80,10 @@ class ExpandDetailView: UIView {
     func setViewsConstraints(){
         containerStackView.translatesAutoresizingMaskIntoConstraints = false
         containerStackView.topAnchor.constraint(equalTo: self.topAnchor, constant: 0).isActive = true
-        containerStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0).isActive = true
+        containerStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 50).isActive = true
         containerStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0).isActive = true
         containerStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0).isActive = true
+
     }
 
 }

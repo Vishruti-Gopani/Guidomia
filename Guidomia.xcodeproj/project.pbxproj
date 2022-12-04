@@ -24,6 +24,7 @@
 		DFE59C22293CF168007E5627 /* SeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE59C21293CF168007E5627 /* SeparatorView.swift */; };
 		DFE59C26293D08A6007E5627 /* Cars.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE59C25293D08A6007E5627 /* Cars.swift */; };
 		DFE59C29293D1582007E5627 /* CarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE59C28293D1582007E5627 /* CarViewModel.swift */; };
+		DFE59C2B293D33E9007E5627 /* AttributedStringHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE59C2A293D33E9007E5627 /* AttributedStringHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		DFE59C21293CF168007E5627 /* SeparatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorView.swift; sourceTree = "<group>"; };
 		DFE59C25293D08A6007E5627 /* Cars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cars.swift; sourceTree = "<group>"; };
 		DFE59C28293D1582007E5627 /* CarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarViewModel.swift; sourceTree = "<group>"; };
+		DFE59C2A293D33E9007E5627 /* AttributedStringHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedStringHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 		DFE59BE0293BDAA2007E5627 /* Guidomia */ = {
 			isa = PBXGroup;
 			children = (
+				DFE59C2C293D4A07007E5627 /* HelperClasses */,
 				DFE59C27293D1572007E5627 /* ViewModel */,
 				DFE59C13293BDCAC007E5627 /* Resources */,
 				DFE59C24293D0889007E5627 /* Models */,
@@ -122,7 +125,6 @@
 				DFE59C23293D072C007E5627 /* ViewController */,
 				DFE59BE1293BDAA2007E5627 /* AppDelegate.swift */,
 				DFE59BE3293BDAA2007E5627 /* SceneDelegate.swift */,
-				DFE59C18293C28F0007E5627 /* NavigationHelper.swift */,
 				DFE59BEC293BDAA4007E5627 /* LaunchScreen.storyboard */,
 				DFE59BEF293BDAA4007E5627 /* Info.plist */,
 			);
@@ -189,6 +191,15 @@
 				DFE59C28293D1582007E5627 /* CarViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		DFE59C2C293D4A07007E5627 /* HelperClasses */ = {
+			isa = PBXGroup;
+			children = (
+				DFE59C18293C28F0007E5627 /* NavigationHelper.swift */,
+				DFE59C2A293D33E9007E5627 /* AttributedStringHelper.swift */,
+			);
+			path = HelperClasses;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -324,6 +335,7 @@
 			files = (
 				DFE59C22293CF168007E5627 /* SeparatorView.swift in Sources */,
 				DFE59C1E293C3F99007E5627 /* CarDetailTableViewCell.swift in Sources */,
+				DFE59C2B293D33E9007E5627 /* AttributedStringHelper.swift in Sources */,
 				DFE59C26293D08A6007E5627 /* Cars.swift in Sources */,
 				DFE59C29293D1582007E5627 /* CarViewModel.swift in Sources */,
 				DFE59C17293C16CD007E5627 /* TableHeaderView.swift in Sources */,

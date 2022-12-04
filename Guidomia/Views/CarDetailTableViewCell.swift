@@ -10,7 +10,7 @@ import UIKit
 class CarDetailTableViewCell: UITableViewCell {
 
     private let detailView = ExpandDetailView()
-    private let separatorView = SeparatorView(frame: CGRect(x: 15, y: 10, width: UIScreen.main.bounds.size.width - 30 , height: 5))
+    private let separatorView = SeparatorView()
     
     public var carModel: Cars? {
         didSet {
@@ -29,7 +29,7 @@ class CarDetailTableViewCell: UITableViewCell {
     
     let cellContainerStackView: UIStackView = {
         var view = UIStackView()
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor(named: "LightGray")
         view.axis = .vertical
         return view
     }()
@@ -52,7 +52,7 @@ class CarDetailTableViewCell: UITableViewCell {
         var label = UILabel()
         label.text = "Car Name"
         label.textAlignment = .left
-        label.textColor = UIColor(named: "DarkGray")
+        label.textColor = UIColor(named: "Text")
         label.font = UIFont.systemFont(ofSize: 18, weight: .bold)
         return label
     }()
@@ -60,7 +60,7 @@ class CarDetailTableViewCell: UITableViewCell {
         var label = UILabel()
         label.text = "Car Price"
         label.textAlignment = .left
-        label.textColor = UIColor(named: "DarkGray")
+        label.textColor = UIColor(named: "Text")
         label.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
         return label
     }()
@@ -81,9 +81,8 @@ class CarDetailTableViewCell: UITableViewCell {
         topView.addSubview(carNameText)
         topView.addSubview(carPriceText)
         topView.addSubview(carRating)
-        detailView.translatesAutoresizingMaskIntoConstraints = false
         cellContainerStackView.addArrangedSubview(detailView)
-        //cellContainerStackView.addArrangedSubview(separatorView)
+        cellContainerStackView.addArrangedSubview(separatorView)
         setTopViewConstraints()
     }
     
@@ -123,11 +122,6 @@ class CarDetailTableViewCell: UITableViewCell {
         carRating.leadingAnchor.constraint(equalTo: carImage.trailingAnchor, constant: 15).isActive = true
         carRating.trailingAnchor.constraint(equalTo: topView.trailingAnchor, constant: 0).isActive = true
         
-//        separatorView.translatesAutoresizingMaskIntoConstraints = false
-//        separatorView.leadingAnchor.constraint(equalTo: cellContainerStackView.leadingAnchor, constant: 0).isActive = true
-//        separatorView.trailingAnchor.constraint(equalTo: cellContainerStackView.trailingAnchor, constant: 0).isActive = true
-//        separatorView.bottomAnchor.constraint(equalTo: cellContainerStackView.bottomAnchor, constant: 0).isActive = true
-
     }
 
     override func awakeFromNib() {
@@ -143,7 +137,24 @@ extension CarDetailTableViewCell {
         carPriceText.text = carModel?.getCarPrice()
         carRating.text = carModel?.getCarRating()
         carImage.image = carModel?.getCarImage()
+        
+        detailView.prosTitle.isHidden = carModel?.hideProsLabel() ?? false
+        detailView.prosDetail.isHidden = detailView.prosTitle.isHidden
+        if detailView.prosTitle.isHidden == false{
+            if let prosArr = carModel?.prosList.filter({ $0.isEmpty == false }) {
+                detailView.prosDetail.attributedText = NSAttributedString().showBulletText(array: prosArr)
+            }
+        }
+        
+        detailView.consTitle.isHidden = carModel?.hideConsLable() ?? false
+        detailView.consDetail.isHidden = detailView.consTitle.isHidden
+        if detailView.consTitle.isHidden == false{
+            if let consArr = carModel?.consList.filter({ $0.isEmpty == false }) {
+                detailView.consDetail.attributedText = NSAttributedString().showBulletText(array: consArr)
+            }
+        }
     }
+    
     
     var isDetailViewHidden: Bool {
         return detailView.isHidden

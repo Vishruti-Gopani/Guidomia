@@ -13,7 +13,7 @@ class tableHeaderView : UITableViewHeaderFooterView{
     
     let stackView: UIStackView = {
         var stackView = UIStackView()
-        stackView.backgroundColor = .gray
+        stackView.backgroundColor = UIColor(named: "DarkGray")
         return stackView
     }()
 
@@ -53,7 +53,7 @@ class tableHeaderView : UITableViewHeaderFooterView{
 
     let filterStackView: UIStackView = {
         var stackView = UIStackView()
-        stackView.backgroundColor = .gray
+        stackView.backgroundColor = UIColor(named: "DarkGray")
         stackView.layer.cornerRadius = Constants.stackVCornerRadius;
         stackView.layer.masksToBounds = true;
         return stackView

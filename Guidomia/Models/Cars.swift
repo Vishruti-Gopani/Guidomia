@@ -75,7 +75,7 @@ struct Cars: Codable{
     }
     
     func getCarName() -> String {
-        return make + Constants.space + model
+        return make
     }
     
     func getCarPrice() -> String {
@@ -90,5 +90,13 @@ struct Cars: Codable{
             star.append(spaceStar)
         }
         return star
+    }
+    
+    func hideProsLabel() -> Bool {
+        return prosList.count == 0 ? true: false
+    }
+    
+    func hideConsLable() -> Bool {
+        return consList.count == 0 ? true: false
     }
 }
