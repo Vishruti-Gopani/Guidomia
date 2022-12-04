@@ -11,10 +11,11 @@ import UIKit
 struct Constants {
     
     static let navigationTitle = "Guidomia"
-    static let star: String = "★"
+    static let star: String = "★ "
     static let bulletPoint: String = "•"
-    static let price: String = "Price:"
+    static let price: String = "Price : "
     static let k: String = "k"
+    static let space: String = " "
     static let newLine: String = "\n"
     static let makeTFPH: String = "   Any Make"
     static let modelTFPH: String = "   Any Model"
@@ -24,6 +25,11 @@ struct Constants {
     static let stackVCornerRadius: CGFloat = 15
     static let filterLabel: String =  "Filters"
     static let headerViewHeight: CGFloat = 400
+    static let carList: String = "Car_list"
+    
+    //HeaderLabel constants
+    static let modelText: String = "Tacoma 2021"
+    static let headLine: String = "Get your's now"
     
 }
 

@@ -12,6 +12,12 @@ class CarDetailTableViewCell: UITableViewCell {
     private let detailView = ExpandDetailView()
     private let separatorView = SeparatorView(frame: CGRect(x: 15, y: 10, width: UIScreen.main.bounds.size.width - 30 , height: 5))
     
+    public var carModel: Cars? {
+        didSet {
+            self.configureDataFromModel()
+        }
+    }
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         configureTopView()
@@ -37,23 +43,25 @@ class CarDetailTableViewCell: UITableViewCell {
    
     let carImage: UIImageView = {
         var imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFill
+        imageView.contentMode = .scaleToFill
         imageView.image = UIImage(named: "Tacoma")
         return imageView
     }()
 
     let carNameText:UILabel = {
         var label = UILabel()
-        label.text = "Car Tacoma"
+        label.text = "Car Name"
         label.textAlignment = .left
-        label.textColor = .white
+        label.textColor = UIColor(named: "DarkGray")
+        label.font = UIFont.systemFont(ofSize: 18, weight: .bold)
         return label
     }()
     let carPriceText:UILabel = {
         var label = UILabel()
-        label.text = "Car Tacoma"
+        label.text = "Car Price"
         label.textAlignment = .left
-        label.textColor = .white
+        label.textColor = UIColor(named: "DarkGray")
+        label.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
         return label
     }()
     
@@ -61,7 +69,8 @@ class CarDetailTableViewCell: UITableViewCell {
         var label = UILabel()
         label.text = "★ ★ ★ ★ ★"
         label.textAlignment = .left
-        label.textColor = .white
+        label.textColor = UIColor(named: "Orange")
+        label.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
         return label
     }()
 
@@ -93,24 +102,25 @@ class CarDetailTableViewCell: UITableViewCell {
         topView.heightAnchor.constraint(equalToConstant: 100).isActive = true
         
         carImage.translatesAutoresizingMaskIntoConstraints = false
-        carImage.leadingAnchor.constraint(equalTo: topView.leadingAnchor, constant: 30).isActive = true
+        carImage.leadingAnchor.constraint(equalTo: cellContainerStackView.leadingAnchor, constant: 20).isActive = true
         carImage.centerYAnchor.constraint(equalTo: topView.centerYAnchor, constant: 0).isActive = true
-        carImage.widthAnchor.constraint(equalToConstant: 60).isActive = true
-        carImage.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        carImage.widthAnchor.constraint(equalToConstant: 90).isActive = true
+        carImage.bottomAnchor.constraint(equalTo: carRating.bottomAnchor, constant: 0).isActive = true
+        //carImage.heightAnchor.constraint(equalToConstant: 70).isActive = true
         
         carNameText.translatesAutoresizingMaskIntoConstraints = false
         carNameText.topAnchor.constraint(equalTo: carImage.topAnchor, constant: 0).isActive = true
-        carNameText.leadingAnchor.constraint(equalTo: carImage.trailingAnchor, constant: 30).isActive = true
+        carNameText.leadingAnchor.constraint(equalTo: carImage.trailingAnchor, constant: 15).isActive = true
         carNameText.trailingAnchor.constraint(equalTo: topView.trailingAnchor, constant: 0).isActive = true
         
         carPriceText.translatesAutoresizingMaskIntoConstraints = false
         carPriceText.topAnchor.constraint(equalTo: carNameText.bottomAnchor, constant: 0).isActive = true
-        carPriceText.leadingAnchor.constraint(equalTo: carImage.trailingAnchor, constant: 30).isActive = true
+        carPriceText.leadingAnchor.constraint(equalTo: carImage.trailingAnchor, constant: 15).isActive = true
         carPriceText.trailingAnchor.constraint(equalTo: topView.trailingAnchor, constant: 0).isActive = true
         
         carRating.translatesAutoresizingMaskIntoConstraints = false
         carRating.topAnchor.constraint(equalTo: carPriceText.bottomAnchor, constant: 0).isActive = true
-        carRating.leadingAnchor.constraint(equalTo: carImage.trailingAnchor, constant: 30).isActive = true
+        carRating.leadingAnchor.constraint(equalTo: carImage.trailingAnchor, constant: 15).isActive = true
         carRating.trailingAnchor.constraint(equalTo: topView.trailingAnchor, constant: 0).isActive = true
         
 //        separatorView.translatesAutoresizingMaskIntoConstraints = false
@@ -127,6 +137,14 @@ class CarDetailTableViewCell: UITableViewCell {
 }
 
 extension CarDetailTableViewCell {
+    
+    private func configureDataFromModel() {
+        carNameText.text = carModel?.getCarName()
+        carPriceText.text = carModel?.getCarPrice()
+        carRating.text = carModel?.getCarRating()
+        carImage.image = carModel?.getCarImage()
+    }
+    
     var isDetailViewHidden: Bool {
         return detailView.isHidden
     }

@@ -10,8 +10,9 @@ import UIKit
 class CarListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     private var selectedIndex: IndexPath?
+    var viewModel: CarViewModel?
   
-    // TableView
+    // TableView configuration
     private let tableView :UITableView = {
         let tableView = UITableView()
         tableView.register(CarDetailTableViewCell.self, forCellReuseIdentifier: Constants.detailCellIdentifier)
@@ -22,18 +23,10 @@ class CarListViewController: UIViewController, UITableViewDataSource, UITableVie
         return tableView
     }()
     
-    func setTableViewConstraints(){
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0).isActive = true
-        tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
-        tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
-        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
-        
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        viewModel = CarViewModel()
         
         NavigationHelper().setupNavigationBar(navigationController: navigationController)
         NavigationHelper().showCustomizedNavigationTitle(navigationItem: navigationItem, title: Constants.navigationTitle)
@@ -44,24 +37,31 @@ class CarListViewController: UIViewController, UITableViewDataSource, UITableVie
         tableView.delegate = self
     }
     
+    func setTableViewConstraints(){
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0).isActive = true
+        tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
+        tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
+        
+    }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         tableView.frame = view.bounds
     }
 
-    
-    private let models = ["A", "B", "C", "D","F","A", "B", "C", "D","F"]
-    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return models.count;
+        return viewModel?.carModel?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.detailCellIdentifier, for: indexPath) as! CarDetailTableViewCell
+        cell.carModel = viewModel?.carModel?[indexPath.row]
         return cell
     }
     

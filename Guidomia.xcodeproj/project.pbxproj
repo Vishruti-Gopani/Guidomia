@@ -22,6 +22,8 @@
 		DFE59C1E293C3F99007E5627 /* CarDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE59C1D293C3F99007E5627 /* CarDetailTableViewCell.swift */; };
 		DFE59C20293CE834007E5627 /* ExpandDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE59C1F293CE834007E5627 /* ExpandDetailView.swift */; };
 		DFE59C22293CF168007E5627 /* SeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE59C21293CF168007E5627 /* SeparatorView.swift */; };
+		DFE59C26293D08A6007E5627 /* Cars.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE59C25293D08A6007E5627 /* Cars.swift */; };
+		DFE59C29293D1582007E5627 /* CarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE59C28293D1582007E5627 /* CarViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,8 @@
 		DFE59C1D293C3F99007E5627 /* CarDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDetailTableViewCell.swift; sourceTree = "<group>"; };
 		DFE59C1F293CE834007E5627 /* ExpandDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandDetailView.swift; sourceTree = "<group>"; };
 		DFE59C21293CF168007E5627 /* SeparatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorView.swift; sourceTree = "<group>"; };
+		DFE59C25293D08A6007E5627 /* Cars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cars.swift; sourceTree = "<group>"; };
+		DFE59C28293D1582007E5627 /* CarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,7 +115,9 @@
 		DFE59BE0293BDAA2007E5627 /* Guidomia */ = {
 			isa = PBXGroup;
 			children = (
+				DFE59C27293D1572007E5627 /* ViewModel */,
 				DFE59C13293BDCAC007E5627 /* Resources */,
+				DFE59C24293D0889007E5627 /* Models */,
 				DFE59C1A293C2DE2007E5627 /* Views */,
 				DFE59C23293D072C007E5627 /* ViewController */,
 				DFE59BE1293BDAA2007E5627 /* AppDelegate.swift */,
@@ -167,6 +173,22 @@
 				DFE59BE5293BDAA2007E5627 /* CarListViewController.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		DFE59C24293D0889007E5627 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				DFE59C25293D08A6007E5627 /* Cars.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		DFE59C27293D1572007E5627 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				DFE59C28293D1582007E5627 /* CarViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -302,6 +324,8 @@
 			files = (
 				DFE59C22293CF168007E5627 /* SeparatorView.swift in Sources */,
 				DFE59C1E293C3F99007E5627 /* CarDetailTableViewCell.swift in Sources */,
+				DFE59C26293D08A6007E5627 /* Cars.swift in Sources */,
+				DFE59C29293D1582007E5627 /* CarViewModel.swift in Sources */,
 				DFE59C17293C16CD007E5627 /* TableHeaderView.swift in Sources */,
 				DFE59C19293C28F0007E5627 /* NavigationHelper.swift in Sources */,
 				DFE59BE6293BDAA2007E5627 /* CarListViewController.swift in Sources */,

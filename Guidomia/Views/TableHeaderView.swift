@@ -17,20 +17,33 @@ class tableHeaderView : UITableViewHeaderFooterView{
         return stackView
     }()
 
+    // Top Image View configuration
     let image: UIImageView = {
         var imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.image = UIImage(named: "Tacoma")
         return imageView
     }()
-
-    let title:UILabel = {
+    
+    let modelText:UILabel = {
         var label = UILabel()
-        label.text = "Car Tacoma"
+        label.text = Constants.modelText
         label.textAlignment = .left
+        label.font = UIFont.systemFont(ofSize: 27, weight: .heavy)
         label.textColor = .white
         return label
     }()
+
+    let headLineText:UILabel = {
+        var label = UILabel()
+        label.text = Constants.headLine
+        label.textAlignment = .left
+        label.textColor = .white
+        label.font = UIFont.boldSystemFont(ofSize: 16)
+        return label
+    }()
+    
+    //Filter UI view configuration
 
     let filterContainerView: UIView = {
         var view = UIView()
@@ -56,6 +69,11 @@ class tableHeaderView : UITableViewHeaderFooterView{
 
     let makeTextField:UITextField = {
         var tf = UITextField()
+        let attributes = [
+            NSAttributedString.Key.foregroundColor: UIColor(named: "DarkGray"),
+            NSAttributedString.Key.font : UIFont.systemFont(ofSize: 15, weight: .medium)
+        ]
+        tf.attributedPlaceholder = NSAttributedString(string: "Placeholder Text", attributes:attributes)
         tf.backgroundColor = .white
         tf.layer.cornerRadius = Constants.tfCornerRadius;
         tf.placeholder = Constants.makeTFPH
@@ -65,6 +83,11 @@ class tableHeaderView : UITableViewHeaderFooterView{
 
     let modelTextField:UITextField = {
         var tf = UITextField()
+        let attributes = [
+            NSAttributedString.Key.foregroundColor: UIColor(named: "DarkGray"),
+            NSAttributedString.Key.font : UIFont.systemFont(ofSize: 15, weight: .medium)
+        ]
+        tf.attributedPlaceholder = NSAttributedString(string: "Placeholder Text", attributes:attributes)
         tf.backgroundColor = .white
         tf.layer.cornerRadius = Constants.tfCornerRadius;
         tf.layer.masksToBounds = true;
@@ -82,7 +105,8 @@ class tableHeaderView : UITableViewHeaderFooterView{
     func configureTopView() {
         contentView.addSubview(stackView)
         stackView.addSubview(image)
-        image.addSubview(title)
+        image.addSubview(modelText)
+        image.addSubview(headLineText)
         setTopViewConstarints()
     }
 
@@ -107,12 +131,18 @@ class tableHeaderView : UITableViewHeaderFooterView{
         image.leadingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: 0).isActive = true
         image.trailingAnchor.constraint(equalTo:stackView.trailingAnchor, constant: 0).isActive = true
         image.heightAnchor.constraint(equalToConstant:200.0).isActive = true
-
-        title.translatesAutoresizingMaskIntoConstraints = false
-        title.bottomAnchor.constraint(equalTo: image.bottomAnchor, constant: 0).isActive = true
-        title.leadingAnchor.constraint(equalTo: image.leadingAnchor, constant: 25).isActive = true
-        title.trailingAnchor.constraint(equalTo:image.trailingAnchor, constant: 0).isActive = true
-        title.heightAnchor.constraint(equalToConstant:50.0).isActive = true
+        
+        modelText.translatesAutoresizingMaskIntoConstraints = false
+        modelText.bottomAnchor.constraint(equalTo: headLineText.topAnchor, constant: 0).isActive = true
+        modelText.leadingAnchor.constraint(equalTo: image.leadingAnchor, constant: 15).isActive = true
+        modelText.trailingAnchor.constraint(equalTo:image.trailingAnchor, constant: 0).isActive = true
+      //  modelText.heightAnchor.constraint(equalToConstant:50.0).isActive = true
+        
+        headLineText.translatesAutoresizingMaskIntoConstraints = false
+        headLineText.bottomAnchor.constraint(equalTo: image.bottomAnchor, constant: -20).isActive = true
+        headLineText.leadingAnchor.constraint(equalTo: image.leadingAnchor, constant: 15).isActive = true
+        headLineText.trailingAnchor.constraint(equalTo:image.trailingAnchor, constant: 0).isActive = true
+       // headLineText.heightAnchor.constraint(equalToConstant:50.0).isActive = true
     }
 
     func setFilterViewConstraints(){
