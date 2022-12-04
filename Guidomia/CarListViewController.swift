@@ -7,36 +7,62 @@
 
 import UIKit
 
-class CarListViewController: UIViewController {
+class CarListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+  
+    // TableView
+    private let tableView :UITableView = {
+        let tableView = UITableView()
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: Constants.detailCellIdentifier)
+        tableView.register(tableHeaderView.self,
+                           forHeaderFooterViewReuseIdentifier: Constants.headerCellIdentifier)
+        tableView.backgroundColor = UIColor(named: "Orange")
+        return tableView
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        setupNavigationBar(navigationController: navigationController)
-        showCustomizedNavigationTitle(navigationItem: navigationItem, title: Constants.navigationTitle)
+        
+        NavigationHelper().setupNavigationBar(navigationController: navigationController)
+        NavigationHelper().showCustomizedNavigationTitle(navigationItem: navigationItem, title: Constants.navigationTitle)
+        
+        view.addSubview(tableView)
+        tableView.dataSource = self
+        tableView.delegate = self
     }
     
-    func setupNavigationBar(navigationController:UINavigationController?){
-        let appearance = UINavigationBarAppearance()
-        appearance.backgroundColor = UIColor(named: "Orange")
-        appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
-        appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
-        navigationController?.navigationBar.tintColor = .white
-        navigationController?.navigationBar.standardAppearance = appearance
-        navigationController?.navigationBar.compactAppearance = appearance
-        navigationController?.navigationBar.scrollEdgeAppearance = appearance
-
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        tableView.frame = view.bounds
     }
     
-    func showCustomizedNavigationTitle(navigationItem : UINavigationItem, title:String){
-        let titlelabel = UILabel(frame: CGRect(x: 15, y: 15, width: 400, height: 50))
-        titlelabel.text = title.uppercased()
-        titlelabel.textColor = .white
-        titlelabel.font = UIFont.systemFont(ofSize: 26, weight: .heavy)
-        titlelabel.backgroundColor = UIColor.clear
-        titlelabel.textAlignment = .left
-        navigationItem.titleView = titlelabel
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .bookmarks, target: nil, action: nil)
+    
+    private let models = ["A", "B", "C", "D"]
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return models.count;
+        
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.detailCellIdentifier, for: indexPath)
+        cell.textLabel?.text = models[indexPath.row]
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView,
+            viewForHeaderInSection section: Int) -> UIView? {
+       let view = tableView.dequeueReusableHeaderFooterView(withIdentifier:
+                                                                Constants.headerCellIdentifier) as! tableHeaderView
+       return view
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return Constants.headerViewHeight
     }
 
 

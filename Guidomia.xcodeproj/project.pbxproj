@@ -17,6 +17,8 @@
 		DFE59C05293BDAA4007E5627 /* GuidomiaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE59C04293BDAA4007E5627 /* GuidomiaUITestsLaunchTests.swift */; };
 		DFE59C12293BDB22007E5627 /* Car_list.json in Resources */ = {isa = PBXBuildFile; fileRef = DFE59C11293BDB22007E5627 /* Car_list.json */; };
 		DFE59C15293BE011007E5627 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE59C14293BE011007E5627 /* Constants.swift */; };
+		DFE59C17293C16CD007E5627 /* TableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE59C16293C16CD007E5627 /* TableHeaderView.swift */; };
+		DFE59C19293C28F0007E5627 /* NavigationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE59C18293C28F0007E5627 /* NavigationHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,8 @@
 		DFE59C04293BDAA4007E5627 /* GuidomiaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuidomiaUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		DFE59C11293BDB22007E5627 /* Car_list.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Car_list.json; sourceTree = "<group>"; };
 		DFE59C14293BE011007E5627 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		DFE59C16293C16CD007E5627 /* TableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableHeaderView.swift; sourceTree = "<group>"; };
+		DFE59C18293C28F0007E5627 /* NavigationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,7 +85,6 @@
 		DFE59BD5293BDAA2007E5627 = {
 			isa = PBXGroup;
 			children = (
-				DFE59C13293BDCAC007E5627 /* Resources */,
 				DFE59BE0293BDAA2007E5627 /* Guidomia */,
 				DFE59BF7293BDAA4007E5627 /* GuidomiaTests */,
 				DFE59C01293BDAA4007E5627 /* GuidomiaUITests */,
@@ -102,9 +105,12 @@
 		DFE59BE0293BDAA2007E5627 /* Guidomia */ = {
 			isa = PBXGroup;
 			children = (
+				DFE59C13293BDCAC007E5627 /* Resources */,
+				DFE59C1A293C2DE2007E5627 /* Views */,
 				DFE59BE1293BDAA2007E5627 /* AppDelegate.swift */,
 				DFE59BE3293BDAA2007E5627 /* SceneDelegate.swift */,
 				DFE59BE5293BDAA2007E5627 /* CarListViewController.swift */,
+				DFE59C18293C28F0007E5627 /* NavigationHelper.swift */,
 				DFE59BEC293BDAA4007E5627 /* LaunchScreen.storyboard */,
 				DFE59BEF293BDAA4007E5627 /* Info.plist */,
 			);
@@ -136,6 +142,14 @@
 				DFE59C14293BE011007E5627 /* Constants.swift */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		DFE59C1A293C2DE2007E5627 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DFE59C16293C16CD007E5627 /* TableHeaderView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -269,6 +283,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DFE59C17293C16CD007E5627 /* TableHeaderView.swift in Sources */,
+				DFE59C19293C28F0007E5627 /* NavigationHelper.swift in Sources */,
 				DFE59BE6293BDAA2007E5627 /* CarListViewController.swift in Sources */,
 				DFE59BE2293BDAA2007E5627 /* AppDelegate.swift in Sources */,
 				DFE59BE4293BDAA2007E5627 /* SceneDelegate.swift in Sources */,
