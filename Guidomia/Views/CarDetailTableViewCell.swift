@@ -92,35 +92,42 @@ class CarDetailTableViewCell: UITableViewCell {
         cellContainerStackView.topAnchor.constraint(equalTo: self.topAnchor, constant: 0).isActive = true
         cellContainerStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0).isActive = true
         cellContainerStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0).isActive = true
-        cellContainerStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0).isActive = true
+        cellContainerStackView.bottomAnchor.constraint(lessThanOrEqualTo: self.bottomAnchor, constant: 0).isActive = true
         
         topView.translatesAutoresizingMaskIntoConstraints = false
         topView.topAnchor.constraint(equalTo: cellContainerStackView.topAnchor, constant: 0).isActive = true
         topView.leadingAnchor.constraint(equalTo: cellContainerStackView.leadingAnchor, constant: 0).isActive = true
         topView.trailingAnchor.constraint(equalTo: cellContainerStackView.trailingAnchor, constant: 0).isActive = true
-        topView.heightAnchor.constraint(equalToConstant: 100).isActive = true
-        
+        topView.heightAnchor.constraint(greaterThanOrEqualToConstant: 100).isActive = true
+
         carImage.translatesAutoresizingMaskIntoConstraints = false
         carImage.leadingAnchor.constraint(equalTo: cellContainerStackView.leadingAnchor, constant: 20).isActive = true
         carImage.centerYAnchor.constraint(equalTo: topView.centerYAnchor, constant: 0).isActive = true
         carImage.widthAnchor.constraint(equalToConstant: 90).isActive = true
         carImage.bottomAnchor.constraint(equalTo: carRating.bottomAnchor, constant: 0).isActive = true
-        //carImage.heightAnchor.constraint(equalToConstant: 70).isActive = true
         
         carNameText.translatesAutoresizingMaskIntoConstraints = false
         carNameText.topAnchor.constraint(equalTo: carImage.topAnchor, constant: 0).isActive = true
         carNameText.leadingAnchor.constraint(equalTo: carImage.trailingAnchor, constant: 15).isActive = true
         carNameText.trailingAnchor.constraint(equalTo: topView.trailingAnchor, constant: 0).isActive = true
+        carNameText.setContentHuggingPriority(.defaultHigh, for: .vertical)
         
         carPriceText.translatesAutoresizingMaskIntoConstraints = false
         carPriceText.topAnchor.constraint(equalTo: carNameText.bottomAnchor, constant: 0).isActive = true
         carPriceText.leadingAnchor.constraint(equalTo: carImage.trailingAnchor, constant: 15).isActive = true
         carPriceText.trailingAnchor.constraint(equalTo: topView.trailingAnchor, constant: 0).isActive = true
+        carPriceText.setContentHuggingPriority(.defaultHigh, for: .vertical)
         
         carRating.translatesAutoresizingMaskIntoConstraints = false
         carRating.topAnchor.constraint(equalTo: carPriceText.bottomAnchor, constant: 0).isActive = true
         carRating.leadingAnchor.constraint(equalTo: carImage.trailingAnchor, constant: 15).isActive = true
         carRating.trailingAnchor.constraint(equalTo: topView.trailingAnchor, constant: 0).isActive = true
+        
+        separatorView.translatesAutoresizingMaskIntoConstraints = false
+        separatorView.bottomAnchor.constraint(equalTo: cellContainerStackView.bottomAnchor, constant: 0).isActive = true
+        separatorView.leadingAnchor.constraint(equalTo: cellContainerStackView.leadingAnchor, constant: 0).isActive = true
+        separatorView.trailingAnchor.constraint(equalTo: cellContainerStackView.trailingAnchor, constant: 0).isActive = true
+        separatorView.heightAnchor.constraint(equalToConstant: 20).isActive = true
         
     }
 

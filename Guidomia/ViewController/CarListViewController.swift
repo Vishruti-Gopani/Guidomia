@@ -44,6 +44,13 @@ class CarListViewController: UIViewController, UITableViewDataSource, UITableVie
         tableView.delegate = self
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        if let carModelObj = viewModel?.carModel, !carModelObj.isEmpty{
+            var index = IndexPath.init(row: 0, section: 0)
+            tableView.selectRow(at: index, animated: true, scrollPosition: .bottom)
+        }
+    }
+    
     func setTableViewConstraints(){
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0).isActive = true
@@ -83,15 +90,17 @@ class CarListViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        UIView.animate(withDuration: 0.3) {
+        UIView.animate(withDuration: 0.2) {
             self.tableView.performBatchUpdates(nil)
         }
+        tableView.scrollToRow(at: indexPath, at: .none, animated: true)
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         if let cell = self.tableView.cellForRow(at: indexPath) as? CarDetailTableViewCell {
             cell.hideDetailView()
         }
+        tableView.scrollToRow(at: indexPath, at: .none, animated: true)
     }
    
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {

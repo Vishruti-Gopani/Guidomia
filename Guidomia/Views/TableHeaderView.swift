@@ -129,28 +129,24 @@ class tableHeaderView : UITableViewHeaderFooterView{
 
     func setTopViewConstarints(){
         stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true
-        stackView.leadingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.leadingAnchor, constant: 0).isActive = true
-        stackView.trailingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.trailingAnchor, constant: 0).isActive = true
+        stackView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
+        stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
+        stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
         stackView.heightAnchor.constraint(equalToConstant: 400).isActive = true
 
         image.translatesAutoresizingMaskIntoConstraints = false
-        image.topAnchor.constraint(equalTo: stackView.topAnchor, constant: 0).isActive = true
-        image.leadingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: 0).isActive = true
-        image.trailingAnchor.constraint(equalTo:stackView.trailingAnchor, constant: 0).isActive = true
+        image.topAnchor.constraint(equalTo: stackView.topAnchor).isActive = true
+        image.leadingAnchor.constraint(equalTo: stackView.leadingAnchor).isActive = true
+        image.trailingAnchor.constraint(equalTo:stackView.trailingAnchor).isActive = true
         image.heightAnchor.constraint(equalToConstant:200.0).isActive = true
         
         modelText.translatesAutoresizingMaskIntoConstraints = false
-        modelText.bottomAnchor.constraint(equalTo: headLineText.topAnchor, constant: 0).isActive = true
+        modelText.bottomAnchor.constraint(equalTo: headLineText.topAnchor).isActive = true
         modelText.leadingAnchor.constraint(equalTo: image.leadingAnchor, constant: 15).isActive = true
-        modelText.trailingAnchor.constraint(equalTo:image.trailingAnchor, constant: 0).isActive = true
-      //  modelText.heightAnchor.constraint(equalToConstant:50.0).isActive = true
         
         headLineText.translatesAutoresizingMaskIntoConstraints = false
         headLineText.bottomAnchor.constraint(equalTo: image.bottomAnchor, constant: -20).isActive = true
         headLineText.leadingAnchor.constraint(equalTo: image.leadingAnchor, constant: 15).isActive = true
-        headLineText.trailingAnchor.constraint(equalTo:image.trailingAnchor, constant: 0).isActive = true
-       // headLineText.heightAnchor.constraint(equalToConstant:50.0).isActive = true
     }
 
     func setFilterViewConstraints(){
@@ -163,13 +159,12 @@ class tableHeaderView : UITableViewHeaderFooterView{
         filterStackView.translatesAutoresizingMaskIntoConstraints = false
         filterStackView.topAnchor.constraint(equalTo: filterContainerView.topAnchor, constant: 20).isActive = true
         filterStackView.leadingAnchor.constraint(equalTo: filterContainerView.leadingAnchor, constant: 20).isActive = true
-        filterStackView.trailingAnchor.constraint(equalTo:filterContainerView.trailingAnchor, constant: -20).isActive = true
+        filterStackView.trailingAnchor.constraint(greaterThanOrEqualTo: filterContainerView.trailingAnchor, constant: -20).isActive = true
         filterStackView.bottomAnchor.constraint(equalTo: filterContainerView.bottomAnchor, constant: -20).isActive = true
 
         filterTitle.translatesAutoresizingMaskIntoConstraints = false
         filterTitle.topAnchor.constraint(equalTo: filterStackView.topAnchor, constant: 0).isActive = true
         filterTitle.leadingAnchor.constraint(equalTo: filterStackView.leadingAnchor, constant: 20).isActive = true
-        filterTitle.trailingAnchor.constraint(equalTo:filterStackView.trailingAnchor, constant: -20).isActive = true
         filterTitle.heightAnchor.constraint(equalToConstant:50.0).isActive = true
 
         makeTextField.translatesAutoresizingMaskIntoConstraints = false
